@@ -1,0 +1,2 @@
+C:\Users\dmori\source\repos\DiscoBot\disco\obj\Debug\DiscordBot.njsprojAssemblyReference.cache
+C:\Users\dmori\source\repos\DiscoBot\disco\bin\Microsoft.NodejsTools.WebRole.dll

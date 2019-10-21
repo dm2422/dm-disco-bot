@@ -17,5 +17,7 @@ client.on('message', message => {
         const date = new Date();
         message.channel.send(date.toLocaleDateString("ja-JP"));
     }
+
+    if (message.content==="{}")
     console.log("   DISCO: message processed   ");
 });

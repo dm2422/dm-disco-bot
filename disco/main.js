@@ -1,6 +1,6 @@
 
 const Discord = require('discord.js');
-const config = require('./config.json');
+const {prefix, config} = require('./config.json');
 const token=config.token;
 
 const client = new Discord.Client();
@@ -12,16 +12,20 @@ client.once('ready', () => {
 
 
 client.on('message', message => {
-    if (message.content === "!ping"){
+    if (!message.content.startsWith("!") || message.author.bot) return;
+
+    
+
+    if (message.content === `${prefix}ping`){
         message.channel.send("PONG");
     }
 
-    if (message.content==="!today"){
+    if (message.content===`${prefix}today`){
         const date = new Date();
         message.channel.send(date.toLocaleDateString("ja-JP"));
     }
     
-    if (message.content==="!mods"){
+    if (message.content===`${prefix}mods`){
         message.channel.send("Not Ready Yet!");
     }
     console.log("   DISCO: message processed   ");

@@ -1,13 +1,15 @@
-const token='NjM0MzMzNDI1MDk1OTMzOTYy.Xbi9gQ.dPA0zuymp0IkywmPEOjm-X_wAcg';
+
 const Discord = require('discord.js');
+const config = require('./config.json');
+const token=config.token;
+
 const client = new Discord.Client();
-//const tools = require("./tools"); 
+//const tools = require("./tools");
 
 client.once('ready', () => {
     console.log('OKOKOK!!!!');
 });
 
-client.login(token);
 
 client.on('message', message => {
     if (message.content === "!ping"){
@@ -18,9 +20,13 @@ client.on('message', message => {
         const date = new Date();
         message.channel.send(date.toLocaleDateString("ja-JP"));
     }
-
+    
     if (message.content==="!mods"){
         message.channel.send("Not Ready Yet!");
     }
     console.log("   DISCO: message processed   ");
 });
+
+client.login(token)
+.then(console.log)
+.catch(console.error);

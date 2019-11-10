@@ -11,22 +11,35 @@ client.once('ready', () => {
 
 
 client.on('message', message => {
-    if (!message.content.startsWith("!") || message.author.bot) return;
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (message.content === `${prefix}ping`){
+    if (command === `ping`){
         message.channel.send("PONG");
     }
 
-    else if (message.content===`${prefix}today`){
+    else if (command === `today`){
         const date = new Date();
         message.channel.send(date.toLocaleDateString("ja-JP"));
     }
     
-    else if (message.content===`${prefix}mods`){
-        message.channel.send("Not Ready Yet!");
+    else if (command === `mods`){
+        switch(args[0]){
+            case ("add"):
+                
+               break; 
+            case "ref":
+                console.log("!");
+                break;
+            case "":
+                console.log('"');
+                break;
+            default:
+                message.channel.send("modsでしたいことを入力してください。\n add:modの追加\n ref:modのリンク参照\n :");
+                break;
+            }
     }
 
     else if (command === "args-info"){
@@ -35,7 +48,7 @@ client.on('message', message => {
        } 
        message.channel.send(`Command: ${command}\nArgs: ${args}`);
     }
-    console.log(`   DISCO: message processed   ${message}`);
+    console.log(`   DISCO: message processed   command:${command} ,args:${args}`);
 });
 
 client.login(token)

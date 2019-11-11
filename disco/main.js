@@ -1,6 +1,12 @@
-
+const fs = require('fs');
+const path = require('path');
 const Discord = require('discord.js');
 const {prefix, token} = require('./config.json');
+let mods = JSON.parse(
+    fs.readFileSync(
+        path.resolve(__dirname, "modsList.json")
+    )
+);
 
 const client = new Discord.Client();
 //const tools = require("./tools");
@@ -28,8 +34,21 @@ client.on('message', message => {
     else if (command === `mods`){
         switch(args[0]){
             case ("add"):
-                
-               break; 
+                if (!(mods[args[1]]===undefined)) message.channel.send("そのmodはもう登録されています！！");
+                else {
+                    if (mods[args[1]] === undefined) mods[args[1]]={};
+                    for (let i = 1; i < args.length-2; i++){
+                        if (args[i]==='-v'){
+                            mods[args[1]].version=args[i+1];
+                        }
+                        if (args[i]==='-l'){
+                            mods[args[1]].link=args[i+1];
+                        }
+                    }
+                    message.channel.send("accepted!!");
+                }
+                console.log(mods[args[1]]);
+                break; 
             case "ref":
                 console.log("!");
                 break;

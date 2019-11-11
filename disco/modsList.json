@@ -1,3 +1,6 @@
 {
-   "MinecraftVersion": "1.7.10"
+   "minecraft": {
+      "version": "1.7.10",
+      "link": "https://launcher.mojang.com/download/MinecraftInstaller.msi"
+   }
 }

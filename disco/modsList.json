@@ -1,6 +1,10 @@
 {
-   "minecraft": {
-      "version": "1.7.10",
-      "link": "https://launcher.mojang.com/download/MinecraftInstaller.msi"
-   }
+  "minecraft": {
+    "version": "1.7.10",
+    "link": "https://launcher.mojang.com/download/MinecraftInstaller.msi"
+  },
+  "AccessChest": {
+    "version": "1.7.0-1.0.3",
+    "link": "https://cdn.discordapp.com/attachments/632439146434002948/637888411583250472/AccessChest_1.7.10-v1.0.3.jar"
+  }
 }

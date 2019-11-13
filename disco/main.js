@@ -36,7 +36,7 @@ client.on('message', message => {
             case ("add"):
                 if (!(mods[args[1]]===undefined)) message.channel.send("そのmodはもう登録されています！！");
                 else {
-                    addMod(mods,args);
+                    addMod.execute(mods,args);
                     message.channel.send("accepted!!");
                 }
                 console.log(mods[args[1]]);

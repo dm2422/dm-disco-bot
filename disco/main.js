@@ -9,7 +9,7 @@ let mods = JSON.parse(
 );
 
 const client = new Discord.Client();
-//const tools = require("./tools");
+const addMod = require("./addMod");
 
 client.once('ready', () => {
     console.log('OKOKOK!!!!');
@@ -36,24 +36,19 @@ client.on('message', message => {
             case ("add"):
                 if (!(mods[args[1]]===undefined)) message.channel.send("そのmodはもう登録されています！！");
                 else {
-                    if (mods[args[1]] === undefined) mods[args[1]]={};
-                    for (let i = 1; i < args.length-2; i++){
-                        if (args[i]==='-v'){
-                            mods[args[1]].version=args[i+1];
-                        }
-                        if (args[i]==='-l'){
-                            mods[args[1]].link=args[i+1];
-                        }
-                    }
+                    addMod(mods,args);
                     message.channel.send("accepted!!");
                 }
                 console.log(mods[args[1]]);
+                
                 break; 
-            case "ref":
+            case "link":
+                message.reply(mods[args[1]].link);
                 console.log("!");
                 break;
-            case "":
-                console.log('"');
+            case "version":
+                try {message.reply(mods[args[1]].version);}
+                catch(TypeError) {message.reply("そんなmodはありません");}
                 break;
             default:
                 message.channel.send("modsでしたいことを入力してください。\n add:modの追加\n ref:modのリンク参照\n :");

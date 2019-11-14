@@ -37,7 +37,8 @@ client.on('message', message => {
                 if (!(mods[args[1]]===undefined)) message.channel.send("そのmodはもう登録されています！！");
                 else {
                     addMod.execute(mods,args);
-                    message.channel.send("accepted!!");
+                    const date = new Date();
+                    message.channel.send(`accepted ${args[1]} on ${date.toLocaleTimeString("ja-JP")}`);
                 }
                 console.log(mods[args[1]]);
                 

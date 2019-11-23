@@ -5,5 +5,5 @@ module.exports = {
             message.channel.send(`Enter args! ${message.author}`);
         } 
         message.channel.send(`Command: ${args[0]}\nArgs: ${args}`);
-     }
-}
+        }
+    };

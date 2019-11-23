@@ -4,6 +4,6 @@ module.exports = {
         if (!args.length) {
             message.channel.send(`Enter args! ${message.author}`);
         } 
-        message.channel.send(`Command: ${command}\nArgs: ${args}`);
+        message.channel.send(`Command: ${args[0]}\nArgs: ${args}`);
      }
 }

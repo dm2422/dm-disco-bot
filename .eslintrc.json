@@ -1,22 +1,37 @@
 {
-    "extends": ["eslint:recommended",
-        "plugin:prettier/recommended"
-    ],
     "env": {
-        "node": true,
+        "browser": true,
+        "commonjs": true,
         "es6": true
     },
-    "parserOptions": {
-        "emcaVersion": 2019
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "prettier/@typescript-eslint"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
     },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
     "rules": {
-        "semi": ["error", "always"],
-        "prettier/prettier": [
+        "indent": [
             "error",
-            {
-                "singleQuote": true,
-                "trailingComma": "es5"
-            }
-        ]
+            "tab"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "@typescript-eslint/no-var-require": "false"
     }
 }

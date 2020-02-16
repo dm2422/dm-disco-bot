@@ -1,6 +1,6 @@
 const fs = require('fs');
 module.exports = {
-  name: 'getFiles',
+  name: 'getModules',
   description: 'Get files',
   execute(folder, ext, cur_dir) {
     const list = fs

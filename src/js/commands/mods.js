@@ -1,6 +1,6 @@
 module.exports = {
   name: 'mods',
-  description: 'anyting related to mods.',
+  description: 'anything related to mods.',
   execute(args, mods, message) {
     console.log('executing mods');
     const addMod = require('./addMod');
